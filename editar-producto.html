@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Editar producto - FarmaPlus
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body class="pagina-admin">
+
+
+    <header class="admin-header">
+
+        <a
+    href="/"
+    class="logo-global-enlace"
+>
+
+    <img
+        src="/img/logo-farmaplus.png"
+        alt="FarmaPlus"
+        class="logo-global-img"
+    >
+
+</a>
+
+
+        <div class="admin-header-derecha">
+
+            <a href="/admin/productos">
+                Productos
+            </a>
+
+            <a href="/productos.html">
+                Ver tienda
+            </a>
+
+            <div
+                class="sesion-nav"
+                id="sesion-nav"
+            >
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="admin-productos-pagina">
+
+
+        <section class="admin-productos-titulo">
+
+            <p class="admin-etiqueta">
+                PRODUCTOS
+            </p>
+
+            <h1>
+                Editar producto
+            </h1>
+
+            <p>
+                Modificá la información del producto.
+            </p>
+
+        </section>
+
+
+        <section class="editor-producto-contenedor">
+
+
+            <form
+                id="form-editar-producto"
+                enctype="multipart/form-data"
+            >
+
+
+                <div class="editor-producto-seccion">
+
+                    <h2>
+                        Información general
+                    </h2>
+
+
+                    <label for="editar-producto-nombre">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editar-producto-nombre"
+                        required
+                    >
+
+
+                    <label for="editar-producto-categoria">
+                        Categoría
+                    </label>
+
+                    <select
+                        id="editar-producto-categoria"
+                        required
+                    >
+
+                        <option value="Cuidado personal">
+                            Cuidado personal
+                        </option>
+
+                        <option value="Piel">
+                            Piel
+                        </option>
+
+                        <option value="Higiene">
+                            Higiene
+                        </option>
+
+                        <option value="Medicamentos">
+                            Medicamentos
+                        </option>
+
+                    </select>
+
+
+                    <label for="editar-producto-descripcion-corta">
+                        Descripción corta
+                    </label>
+
+                    <textarea
+                        id="editar-producto-descripcion-corta"
+                        rows="3"
+                    ></textarea>
+
+
+                    <label for="editar-producto-descripcion-larga">
+                        Descripción completa
+                    </label>
+
+                    <textarea
+                        id="editar-producto-descripcion-larga"
+                        rows="7"
+                    ></textarea>
+
+                </div>
+
+
+<div class="editor-producto-seccion">
+
+    <h2>
+        Precio y disponibilidad
+    </h2>
+
+
+    <label for="editar-producto-precio">
+        Precio normal
+    </label>
+
+    <input
+        type="number"
+        id="editar-producto-precio"
+        min="1"
+        required
+    >
+
+
+<div class="editor-oferta">
+
+    <label class="editor-oferta-activar">
+
+        <input
+            type="checkbox"
+            id="editar-producto-en-oferta"
+        >
+
+        <span>
+            Activar oferta
+        </span>
+
+    </label>
+
+
+    <div
+        id="editor-oferta-campos"
+        class="editor-oferta-campos"
+        hidden
+    >
+
+        <label for="editar-producto-descuento">
+            Porcentaje de descuento
+        </label>
+
+        <div class="editor-oferta-porcentaje-input">
+
+            <input
+                type="number"
+                id="editar-producto-descuento"
+                min="1"
+                max="99"
+                placeholder="Ej: 10"
+            >
+
+            <span>
+                %
+            </span>
+
+        </div>
+
+
+        <div class="editor-oferta-resumen">
+
+            <span>
+                Precio final
+            </span>
+
+            <strong id="editor-oferta-precio-final">
+                $0
+            </strong>
+
+        </div>
+
+
+        <div class="editor-oferta-resumen">
+
+            <span>
+                El cliente ahorra
+            </span>
+
+            <strong id="editor-oferta-ahorro">
+                $0
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+<label for="editar-producto-stock">
+    Stock disponible
+</label>
+
+<input
+    type="number"
+    id="editar-producto-stock"
+    min="0"
+    step="1"
+    value="0"
+    required
+>
+
+    <label for="editar-producto-estado">
+    Estado automático
+</label>
+
+<select
+    id="editar-producto-estado"
+    disabled
+>
+
+        <option value="Disponible">
+            Disponible
+        </option>
+
+        <option value="Agotado">
+            Agotado
+        </option>
+
+    </select>
+
+</div>
+
+
+                <div class="editor-producto-seccion">
+
+    <h2>
+        Imágenes del producto
+    </h2>
+
+    <p class="editor-galeria-ayuda">
+        Podés reemplazar las imágenes actuales
+        o agregar nuevas imágenes al producto.
+    </p>
+
+
+    <div
+        class="editor-galeria-producto"
+        id="editor-galeria-producto"
+    >
+
+        <!-- IMAGEN PRINCIPAL -->
+
+        <div class="editor-imagen-tarjeta">
+
+            <span class="editor-imagen-etiqueta">
+                Principal
+            </span>
+
+            <img
+                id="vista-imagen-frente"
+                alt="Imagen principal"
+            >
+
+            <div class="editor-imagen-overlay">
+
+    <label
+        for="editar-imagen-frente"
+        class="editor-imagen-accion editor-imagen-reemplazar"
+    >
+        🖼 Reemplazar imagen
+    </label>
+
+    <button
+        type="button"
+        class="editor-imagen-accion editor-imagen-eliminar"
+        id="eliminar-imagen-principal"
+    >
+        🗑 Eliminar imagen
+    </button>
+
+</div>
+
+        </div>
+
+
+        <!-- IMAGEN TRASERA -->
+
+        <div class="editor-imagen-tarjeta">
+
+            <span class="editor-imagen-etiqueta">
+                Trasera
+            </span>
+
+            <img
+                id="vista-imagen-dorso"
+                alt="Imagen trasera"
+            >
+
+            <div class="editor-imagen-overlay">
+
+    <label
+        for="editar-imagen-dorso"
+        class="editor-imagen-accion editor-imagen-reemplazar"
+    >
+        🖼 Reemplazar imagen
+    </label>
+
+    <button
+        type="button"
+        class="editor-imagen-accion editor-imagen-eliminar"
+        id="eliminar-imagen-trasera"
+    >
+        🗑 Eliminar imagen
+    </button>
+
+</div>
+
+        </div>
+
+
+        <!-- IMÁGENES EXTRA -->
+
+        <div id="editor-imagenes-extra-preview">
+        </div>
+
+
+        <!-- AGREGAR IMAGEN -->
+
+        <label
+            for="editar-imagenes-extra"
+            class="editor-agregar-imagen"
+        >
+
+            <span class="editor-agregar-imagen-icono">
+                +
+            </span>
+
+            <span>
+                Agregar imagen
+            </span>
+
+        </label>
+
+    </div>
+
+
+    <!-- INPUTS OCULTOS -->
+
+    <input
+        type="file"
+        id="editar-imagen-frente"
+        class="editor-input-imagen-oculto"
+        accept=".png,.jpg,.jpeg,.webp"
+    >
+
+    <input
+        type="file"
+        id="editar-imagen-dorso"
+        class="editor-input-imagen-oculto"
+        accept=".png,.jpg,.jpeg,.webp"
+    >
+
+    <input
+        type="file"
+        id="editar-imagenes-extra"
+        class="editor-input-imagen-oculto"
+        accept=".png,.jpg,.jpeg,.webp"
+        multiple
+    >
+
+</div>
+
+
+                <div
+                    id="mensaje-editar-producto"
+                    class="mensaje-producto"
+                >
+                </div>
+
+
+                <div class="editor-producto-acciones">
+
+                    <a
+                        href="/admin/productos"
+                        class="editor-boton-cancelar"
+                    >
+                        Cancelar
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        id="boton-guardar-edicion"
+                    >
+                        Guardar cambios
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </section>
+
+
+    </main>
+
+
+<!-- =========================================
+     CONFIRMAR OFERTA
+     ========================================= -->
+
+<div
+    class="modal-oferta-fondo"
+    id="modal-confirmar-oferta"
+    hidden
+>
+
+    <div class="modal-oferta">
+
+        <h2 id="modal-oferta-titulo">
+            Confirmar oferta
+        </h2>
+
+        <p id="modal-oferta-aviso">
+            Revisá los datos antes de guardar la oferta.
+        </p>
+
+
+        <div class="modal-oferta-datos">
+
+            <div>
+                <span>Precio normal</span>
+
+                <strong id="modal-oferta-precio-normal">
+                    $0
+                </strong>
+            </div>
+
+
+            <div>
+                <span>Descuento</span>
+
+                <strong id="modal-oferta-descuento">
+                    0%
+                </strong>
+            </div>
+
+
+            <div>
+                <span>Precio final</span>
+
+                <strong id="modal-oferta-precio-final">
+                    $0
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="modal-oferta-botones">
+
+            <button
+                type="button"
+                id="modal-oferta-cancelar"
+                class="modal-oferta-cancelar"
+            >
+                Cancelar
+            </button>
+
+            <button
+                type="button"
+                id="modal-oferta-confirmar"
+                class="modal-oferta-confirmar"
+            >
+                Confirmar oferta
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+     CONFIRMAR ELIMINACIÓN DE IMAGEN
+     ========================================= -->
+
+<div
+    class="modal-eliminar-imagen-fondo"
+    id="modal-eliminar-imagen"
+    hidden
+>
+
+    <div class="modal-eliminar-imagen">
+
+        <div class="modal-eliminar-imagen-icono">
+            🗑
+        </div>
+
+        <h2>
+            Eliminar imagen
+        </h2>
+
+        <p>
+            ¿Querés eliminar esta imagen del producto?
+            Esta acción no se puede deshacer.
+        </p>
+
+
+        <div class="modal-eliminar-imagen-botones">
+
+            <button
+                type="button"
+                id="modal-eliminar-imagen-cancelar"
+                class="modal-eliminar-cancelar"
+            >
+                Cancelar
+            </button>
+
+
+            <button
+                type="button"
+                id="modal-eliminar-imagen-confirmar"
+                class="modal-eliminar-confirmar"
+            >
+                Eliminar imagen
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script src="/sesion.js"></script>
+<script src="/editar-producto.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Mi perfil - FarmaPlus
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body class="pagina-perfil">
+
+
+    <header>
+
+        <h1 class="logo-global-contenedor">
+
+    <a
+        href="/"
+        class="logo-global-enlace"
+    >
+
+        <img
+            src="img/logo-farmaplus.png"
+            alt="FarmaPlus"
+            class="logo-global-img"
+        >
+
+    </a>
+
+</h1>
+
+
+        <nav>
+
+            <a href="/">
+                Inicio
+            </a>
+
+            <a href="/productos.html">
+                Productos
+            </a>
+
+
+            <div
+                class="sesion-nav"
+                id="sesion-nav"
+            >
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="perfil-pagina">
+
+
+        <section class="perfil-encabezado">
+
+            <div
+                class="perfil-avatar"
+                id="perfil-avatar"
+            >
+                JP
+            </div>
+
+
+            <div>
+
+                <h1 id="perfil-nombre-principal">
+                    Cargando...
+                </h1>
+
+                <p id="perfil-rol">
+                </p>
+
+            </div>
+
+        </section>
+
+
+<section class="perfil-tarjeta">
+
+    <div class="perfil-seccion-titulo">
+
+        <div>
+
+            <p class="perfil-etiqueta">
+                INFORMACIÓN PERSONAL
+            </p>
+
+            <h2>
+                Mis datos
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         MODO VISUALIZACIÓN
+         ========================================= -->
+
+    <div id="perfil-datos-vista">
+
+        <div class="perfil-datos-grid">
+
+            <div class="perfil-dato">
+
+                <span>
+                    Nombre
+                </span>
+
+                <strong id="perfil-nombre">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="perfil-dato">
+
+                <span>
+                    Apellido
+                </span>
+
+                <strong id="perfil-apellido">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="perfil-dato">
+
+                <span>
+                    Correo electrónico
+                </span>
+
+                <strong id="perfil-email">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="perfil-dato">
+
+                <span>
+                    Teléfono
+                </span>
+
+                <strong id="perfil-telefono">
+                    Sin configurar
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="perfil-boton-principal"
+            id="boton-editar-perfil"
+        >
+            Editar información
+        </button>
+
+    </div>
+
+
+    <!-- =========================================
+         MODO EDICIÓN
+         ========================================= -->
+
+    <form
+        id="formulario-editar-perfil"
+        class="perfil-formulario"
+        hidden
+    >
+
+        <div class="perfil-datos-grid">
+
+            <div class="perfil-campo">
+
+                <label for="editar-perfil-nombre">
+                    Nombre
+                </label>
+
+                <input
+                    type="text"
+                    id="editar-perfil-nombre"
+                    maxlength="60"
+                    required
+                >
+
+            </div>
+
+
+            <div class="perfil-campo">
+
+                <label for="editar-perfil-apellido">
+                    Apellido
+                </label>
+
+                <input
+                    type="text"
+                    id="editar-perfil-apellido"
+                    maxlength="60"
+                >
+
+            </div>
+
+
+            <div class="perfil-campo">
+
+                <label for="editar-perfil-email">
+                    Correo electrónico
+                </label>
+
+                <input
+                    type="email"
+                    id="editar-perfil-email"
+                    disabled
+                >
+
+                <small>
+                    El correo no se puede modificar por ahora.
+                </small>
+
+            </div>
+
+
+            <div class="perfil-campo">
+
+                <label for="editar-perfil-telefono">
+                    Teléfono
+                </label>
+
+                <input
+                    type="tel"
+                    id="editar-perfil-telefono"
+                    maxlength="30"
+                    placeholder="Ej: 11 1234-5678"
+                >
+
+            </div>
+
+        </div>
+
+
+        <p
+            id="mensaje-editar-perfil"
+            class="perfil-mensaje"
+        >
+        </p>
+
+
+        <div class="perfil-formulario-botones">
+
+            <button
+                type="button"
+                id="boton-cancelar-edicion"
+                class="perfil-boton-cancelar"
+            >
+                Cancelar
+            </button>
+
+
+            <button
+                type="submit"
+                id="boton-guardar-perfil"
+                class="perfil-boton-principal"
+            >
+                Guardar cambios
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+
+        <section class="perfil-tarjeta">
+
+            <div class="perfil-seccion-titulo">
+
+                <div>
+
+                    <p class="perfil-etiqueta">
+                        DIRECCIONES
+                    </p>
+
+                    <h2>
+                        Mis direcciones
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="perfil-direcciones"
+                class="perfil-direcciones"
+            >
+
+                <div class="perfil-sin-direcciones">
+
+                    <h3>
+                        Todavía no tenés direcciones guardadas
+                    </h3>
+
+                    <p>
+                        Agregá una dirección para usarla
+                        más adelante en tus compras.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="perfil-boton-secundario"
+                id="boton-agregar-direccion"
+            >
+                + Agregar dirección
+            </button>
+
+<!-- =========================================
+     FORMULARIO AGREGAR DIRECCIÓN
+     ========================================= -->
+
+<form
+    id="formulario-direccion"
+    class="perfil-formulario-direccion"
+    hidden
+>
+
+    <h3>
+        Agregar dirección
+    </h3>
+
+
+    <div class="perfil-datos-grid">
+
+        <div class="perfil-campo">
+
+            <label for="direccion-alias">
+                Nombre de la dirección
+            </label>
+
+            <input
+                type="text"
+                id="direccion-alias"
+                maxlength="40"
+                placeholder="Ej: Casa, Trabajo"
+                required
+            >
+
+        </div>
+
+
+        <div class="perfil-campo">
+
+            <label for="direccion-calle">
+                Calle
+            </label>
+
+            <input
+                type="text"
+                id="direccion-calle"
+                maxlength="80"
+                placeholder="Ej: Calle Falsa"
+                required
+            >
+
+        </div>
+
+
+        <div class="perfil-campo">
+
+            <label for="direccion-numero">
+                Número
+            </label>
+
+            <input
+                type="text"
+                id="direccion-numero"
+                maxlength="15"
+                placeholder="Ej: 123"
+                required
+            >
+
+        </div>
+
+
+        <div class="perfil-campo">
+
+            <label for="direccion-piso">
+                Piso
+            </label>
+
+            <input
+                type="text"
+                id="direccion-piso"
+                maxlength="10"
+                placeholder="Opcional"
+            >
+
+        </div>
+
+
+        <div class="perfil-campo">
+
+            <label for="direccion-departamento">
+                Departamento
+            </label>
+
+            <input
+                type="text"
+                id="direccion-departamento"
+                maxlength="10"
+                placeholder="Opcional"
+            >
+
+        </div>
+
+
+<div class="perfil-campo">
+
+    <label for="direccion-provincia">
+        Provincia
+    </label>
+
+    <select
+        id="direccion-provincia"
+        required
+    >
+
+        <option value="">
+            Cargando provincias...
+        </option>
+
+    </select>
+
+</div>
+
+
+<div class="perfil-campo">
+
+    <label for="direccion-localidad">
+        Localidad
+    </label>
+
+    <select
+        id="direccion-localidad"
+        required
+        disabled
+    >
+
+        <option value="">
+            Elegí primero una provincia
+        </option>
+
+    </select>
+
+</div>
+
+
+        <div class="perfil-campo">
+
+            <label for="direccion-codigo-postal">
+                Código postal
+            </label>
+
+            <input
+                type="text"
+                id="direccion-codigo-postal"
+                maxlength="12"
+                placeholder="Ej: 1852"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="perfil-campo">
+
+        <label for="direccion-referencias">
+            Referencias para la entrega
+        </label>
+
+        <textarea
+            id="direccion-referencias"
+            maxlength="250"
+            placeholder="Ej: Portón negro, tocar timbre..."
+        ></textarea>
+
+    </div>
+
+
+    <label class="direccion-checkbox">
+
+        <input
+            type="checkbox"
+            id="direccion-principal"
+        >
+
+        <span>
+            Usar como dirección principal
+        </span>
+
+    </label>
+
+
+    <p
+        id="mensaje-direccion"
+        class="perfil-mensaje"
+    >
+    </p>
+
+
+    <div class="perfil-formulario-botones">
+
+        <button
+            type="button"
+            id="boton-cancelar-direccion"
+            class="perfil-boton-cancelar"
+        >
+            Cancelar
+        </button>
+
+
+        <button
+            type="submit"
+            id="boton-guardar-direccion"
+            class="perfil-boton-principal"
+        >
+            Guardar dirección
+        </button>
+
+    </div>
+
+</form>            
+
+        </section>
+
+
+    </main>
+
+
+    <script src="/sesion.js"></script>
+    <script src="/perfil.js"></script>
+
+</body>
+
+</html>

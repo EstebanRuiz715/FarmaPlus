@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Pedido confirmado - FarmaPlus
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body class="pagina-pedido-confirmado">
+
+
+    <header class="checkout-header">
+
+       <a
+    href="/"
+    class="logo-global-enlace"
+>
+    <img
+        src="/img/logo-farmaplus.png"
+        alt="FarmaPlus"
+        class="logo-global-img"
+    >
+</a>
+
+
+        <div
+            class="sesion-nav"
+            id="sesion-nav"
+        >
+        </div>
+
+    </header>
+
+
+    <main class="pedido-confirmado-contenedor">
+
+        <section class="pedido-confirmado-tarjeta">
+
+
+            <div class="pedido-confirmado-icono">
+                ✓
+            </div>
+
+
+            <p class="pedido-confirmado-etiqueta">
+                PEDIDO CONFIRMADO
+            </p>
+
+
+            <h1>
+                ¡Recibimos tu pedido!
+            </h1>
+
+
+            <p class="pedido-confirmado-texto">
+
+                Tu compra fue registrada correctamente
+                en FarmaPlus.
+
+            </p>
+
+
+            <div class="pedido-confirmado-numero">
+
+                <span>
+                    Número de pedido
+                </span>
+
+                <strong id="pedido-confirmado-id">
+                    #-
+                </strong>
+
+            </div>
+
+
+            <div class="pedido-confirmado-resumen">
+
+                <div>
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="pedido-confirmado-total">
+                        $0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Entrega
+                    </span>
+
+                    <strong id="pedido-confirmado-entrega">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Forma de pago
+                    </span>
+
+                    <strong id="pedido-confirmado-pago">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Estado del pago
+                    </span>
+
+                    <strong id="pedido-confirmado-estado-pago">
+                        Pendiente
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="pedido-confirmado-aviso">
+
+                <strong id="pedido-confirmado-titulo-aviso">
+                    Estamos preparando tu pedido.
+                </strong>
+
+                <p id="pedido-confirmado-aviso-texto">
+                </p>
+
+            </div>
+
+
+            <div class="pedido-confirmado-acciones">
+
+                <a
+                    href="/productos.html"
+                    class="pedido-confirmado-boton"
+                >
+                    Seguir comprando
+                </a>
+
+
+                <a
+                    href="/perfil.html"
+                    class="pedido-confirmado-secundario"
+                >
+                    Ir a mi perfil
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/sesion.js"></script>
+
+    <script>
+
+        const pedidoGuardado =
+            localStorage.getItem(
+                "pedidoPendienteFarmaPlus"
+            );
+
+
+        if (!pedidoGuardado) {
+
+            window.location.href =
+                "/productos.html";
+
+        } else {
+
+            const pedido =
+                JSON.parse(
+                    pedidoGuardado
+                );
+
+
+            document.getElementById(
+                "pedido-confirmado-id"
+            ).textContent =
+                "#"
+                +
+                pedido.id;
+
+
+            document.getElementById(
+                "pedido-confirmado-total"
+            ).textContent =
+                "$"
+                +
+                Number(
+                    pedido.total
+                ).toLocaleString(
+                    "es-AR"
+                );
+
+
+            const nombresEntrega = {
+
+                retiro:
+                    "Retiro en FarmaPlus Burzaco",
+
+                envio:
+                    "Envío a domicilio"
+
+            };
+
+
+            const nombresPago = {
+
+                mercado_pago:
+                    "Mercado Pago",
+
+                cuenta_dni:
+                    "Cuenta DNI",
+
+                santander:
+                    "Santander",
+
+                sucursal:
+                    "Pago en sucursal"
+
+            };
+
+
+            document.getElementById(
+                "pedido-confirmado-entrega"
+            ).textContent =
+                nombresEntrega[
+                    pedido.tipo_entrega
+                ]
+                ||
+                pedido.tipo_entrega;
+
+
+            document.getElementById(
+                "pedido-confirmado-pago"
+            ).textContent =
+                nombresPago[
+                    pedido.metodo_pago
+                ]
+                ||
+                pedido.metodo_pago;
+
+
+            document.getElementById(
+                "pedido-confirmado-estado-pago"
+            ).textContent =
+                pedido.estado_pago
+                ||
+                "Pendiente";
+
+
+            const tituloAviso =
+                document.getElementById(
+                    "pedido-confirmado-titulo-aviso"
+                );
+
+
+            const textoAviso =
+                document.getElementById(
+                    "pedido-confirmado-aviso-texto"
+                );
+
+
+            if (
+                pedido.tipo_entrega ===
+                    "retiro"
+                &&
+                pedido.metodo_pago ===
+                    "sucursal"
+            ) {
+
+                tituloAviso.textContent =
+                    "Tu pedido quedó pendiente de pago.";
+
+
+                textoAviso.textContent =
+                    "Podrás pagarlo cuando lo retires en FarmaPlus Burzaco.";
+
+            } else {
+
+                tituloAviso.textContent =
+                    "Tu pedido fue registrado.";
+
+
+                textoAviso.textContent =
+                    "El pago online se procesará en el siguiente paso cuando conectemos Mercado Pago.";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

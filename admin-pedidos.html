@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pedidos - FarmaPlus</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body class="pagina-admin">
+
+
+    <header class="admin-header">
+
+        <a
+            href="/"
+            class="logo-global-enlace"
+        >
+
+            <img
+                src="/img/logo-farmaplus.png"
+                alt="FarmaPlus"
+                class="logo-global-img"
+            >
+
+        </a>
+
+
+        <div class="admin-header-derecha">
+
+            <a href="/admin">
+                Panel admin
+            </a>
+
+            <a href="/productos.html">
+                Ver tienda
+            </a>
+
+            <div
+                class="sesion-nav"
+                id="sesion-nav"
+            >
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="panel-admin">
+
+
+        <div class="admin-titulo">
+
+            <p class="admin-etiqueta">
+                ADMINISTRACIÓN
+            </p>
+
+            <h1>
+                Pedidos
+            </h1>
+
+            <p>
+                Consultá y administrá los pedidos
+                realizados en FarmaPlus.
+            </p>
+
+        </div>
+
+
+        <section class="admin-tarjeta">
+
+    <h2>
+        Pedidos de la tienda
+    </h2>
+
+    <p id="estado-listado-pedidos">
+        Cargando pedidos...
+    </p>
+
+
+    <div id="contenedor-tabla-pedidos" hidden>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Pedido</th>
+
+                    <th>Cliente</th>
+
+                    <th>Entrega</th>
+
+                    <th>Total</th>
+
+                    <th>Pago</th>
+
+                    <th>Estado</th>
+
+                    <th>Fecha</th>
+                    
+                    <th>Acciones</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody id="lista-pedidos-admin">
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<dialog id="modal-pedido-admin">
+
+    <div class="modal-pedido-contenido">
+
+        <div class="modal-pedido-encabezado">
+
+            <h2 id="modal-pedido-titulo">
+                Detalle del pedido
+            </h2>
+
+            <button
+                type="button"
+                id="cerrar-modal-pedido"
+            >
+                Cerrar
+            </button>
+
+        </div>
+
+
+        <p id="estado-detalle-pedido">
+        </p>
+
+
+        <div id="contenido-detalle-pedido">
+        </div>
+
+    </div>
+
+</dialog>
+
+
+<script src="/sesion.js"></script>
+<script src="/admin-pedidos.js"></script>
+
+</body>
+
+</html>

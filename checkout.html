@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Mi carrito - FarmaPlus
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body class="pagina-checkout">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="checkout-header">
+
+        <a
+    href="/"
+    class="logo-global-enlace"
+>
+    <img
+        src="/img/logo-farmaplus.png"
+        alt="FarmaPlus"
+        class="logo-global-img"
+    >
+</a>
+
+
+        <div class="checkout-header-derecha">
+
+            <a href="/productos.html">
+                Seguir comprando
+            </a>
+
+
+            <div
+                class="sesion-nav"
+                id="sesion-nav"
+            >
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CONTENIDO
+    ====================================== -->
+
+    <main class="checkout-contenedor">
+
+
+        <!-- CABECERA DEL CARRITO -->
+
+        <div class="checkout-carrito-cabecera">
+
+            <div>
+
+                <h1>
+                    Mi carrito
+                </h1>
+
+                <span
+                    class="checkout-unidades"
+                    id="checkout-unidades"
+                >
+                    0 unidades
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="checkout-vaciar"
+                id="checkout-vaciar"
+            >
+                Vaciar carrito
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             PRODUCTOS + RESUMEN
+        ================================== -->
+
+        <div class="checkout-grid">
+
+
+            <!-- PRODUCTOS -->
+
+            <section
+                class="checkout-lista-productos"
+                id="checkout-productos"
+            >
+
+                <p>
+                    Cargando carrito...
+                </p>
+
+            </section>
+
+
+            <!-- RESUMEN -->
+
+            <aside class="checkout-resumen">
+
+                <h2>
+                    Resumen de mi compra
+                </h2>
+
+
+                <!-- CUPÓN -->
+
+                <div class="checkout-cupon">
+
+                    <label for="checkout-codigo-cupon">
+                        ¿Tenés un cupón?
+                    </label>
+
+
+                    <div>
+
+                        <input
+                            type="text"
+                            id="checkout-codigo-cupon"
+                            placeholder="Ingresá tu código"
+                        >
+
+                        <button
+                            type="button"
+                            id="checkout-aplicar-cupon"
+                        >
+                            Aplicar
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        class="checkout-cupon-mensaje"
+                        id="checkout-cupon-mensaje"
+                    >
+                    </p>
+
+                </div>
+
+
+                <!-- TOTALES -->
+
+                <div class="checkout-totales">
+
+                    <div>
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong
+                            id="checkout-subtotal"
+                        >
+                            $0
+                        </strong>
+
+                    </div>
+
+                    <div
+    id="checkout-fila-descuento"
+    class="checkout-fila-descuento"
+    hidden
+>
+
+    <span
+        id="checkout-nombre-descuento"
+    >
+        Promoción
+    </span>
+
+    <strong
+        id="checkout-descuento"
+    >
+        -$0
+    </strong>
+
+</div>
+
+                    <div>
+
+                        <span>
+                            Envío
+                        </span>
+
+                        <strong
+                            id="checkout-envio"
+                        >
+                            Gratis
+                        </strong>
+
+                    </div>
+
+
+                    <div
+                        class="checkout-total-final"
+                    >
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong
+                            id="checkout-total"
+                        >
+                            $0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="checkout-confirmar"
+                    id="checkout-confirmar"
+                    disabled
+                >
+                    Finalizar compra
+                </button>
+
+
+                <a
+                    href="/productos.html"
+                    class="checkout-seguir-comprando"
+                >
+                    Seguir comprando
+                </a>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =================================
+             ENTREGA
+        ================================== -->
+
+        <section class="checkout-bloque">
+
+            <div class="checkout-bloque-titulo">
+
+                <h2>
+                    ¿Cómo querés recibir tu compra?
+                </h2>
+
+                <p>
+                    Elegí retiro en FarmaPlus o envío a domicilio.
+                </p>
+
+            </div>
+
+
+            <div class="checkout-opciones-entrega">
+
+
+                <label class="checkout-opcion-entrega">
+
+                    <input
+                        type="radio"
+                        name="tipo-entrega"
+                        value="retiro"
+                        id="entrega-retiro"
+                        checked
+                    >
+
+
+                    <div>
+
+                        <strong>
+                            Retiro en FarmaPlus Burzaco
+                        </strong>
+
+                        <span>
+                            Retirá tu compra sin costo.
+                        </span>
+
+                    </div>
+
+                </label>
+
+
+                <label class="checkout-opcion-entrega">
+
+                    <input
+                        type="radio"
+                        name="tipo-entrega"
+                        value="envio"
+                        id="entrega-envio"
+                    >
+
+
+                    <div>
+
+                        <strong>
+                            Envío a domicilio
+                        </strong>
+
+                        <span>
+                            Recibí tu pedido en una dirección guardada.
+                        </span>
+
+                    </div>
+
+                </label>
+
+            </div>
+
+
+            <!-- DIRECCIONES -->
+
+            <div
+                class="checkout-direcciones oculto"
+                id="checkout-direcciones"
+            >
+
+                <h3>
+                    Elegí una dirección
+                </h3>
+
+
+                <div
+                    id="checkout-lista-direcciones"
+                >
+                </div>
+
+
+                <a
+                    href="/perfil.html"
+                    class="checkout-administrar-direcciones"
+                >
+                    + Administrar direcciones
+                </a>
+
+            </div>
+
+        </section>
+
+
+<!-- =================================
+     PAGO
+================================== -->
+
+<section class="checkout-bloque">
+
+    <div class="checkout-bloque-titulo">
+
+        <h2>
+            Forma de pago
+        </h2>
+
+        <p>
+            Elegí cómo querés pagar tu pedido.
+        </p>
+
+    </div>
+
+
+    <div
+        class="checkout-metodos-pago"
+        id="checkout-metodos-pago"
+    >
+
+
+        <!-- MERCADO PAGO -->
+
+<label class="opcion-pago">
+    <input type="radio" name="metodo-pago" value="mercado_pago">
+    
+    <div class="pago-contenido">
+       <img
+    src="img/mercado-pago.png"
+    alt="Mercado Pago"
+    class="logo-pago logo-ancho"
+>
+        <span>Mercado Pago</span>
+    </div>
+</label>
+
+<label class="opcion-pago">
+    <input type="radio" name="metodo-pago" value="cuenta_dni">
+    
+    <div class="pago-contenido">
+        <img
+    src="img/cuenta-dni.png"
+    alt="Cuenta DNI"
+    class="logo-pago logo-ancho"
+>
+        <span>Cuenta DNI</span>
+    </div>
+</label>
+
+<label class="opcion-pago">
+
+    <input
+        type="radio"
+        name="metodo-pago"
+        value="santander"
+    >
+
+    <div class="pago-contenido">
+
+        <img
+            src="img/santander.png"
+            alt="Banco Santander"
+            class="logo-pago logo-ancho"
+        >
+
+        <span>
+            Banco Santander
+        </span>
+
+    </div>
+
+</label>
+
+
+
+        <!-- PAGO EN SUCURSAL -->
+
+        <label
+            class="checkout-metodo-pago"
+            id="checkout-pago-sucursal"
+        >
+
+            <input
+                type="radio"
+                name="metodo-pago"
+                value="sucursal"
+            >
+
+            <div class="checkout-metodo-pago-icono">
+                🏪
+            </div>
+
+            <div>
+
+                <strong>
+                    Pagar al retirar
+                </strong>
+
+                <span>
+                    Pagá en FarmaPlus Burzaco al retirar
+                    tu pedido.
+                </span>
+
+                <small>
+                    Efectivo o tarjeta en sucursal.
+                </small>
+
+            </div>
+
+        </label>
+
+    </div>
+
+<div
+    class="checkout-promocion-aviso"
+    id="checkout-promocion-aviso"
+    hidden
+>
+</div>
+
+    <p
+        class="checkout-pago-aviso"
+        id="checkout-pago-aviso"
+    >
+        Podés pagar ahora o al retirar tu compra.
+    </p>
+
+</section>
+
+
+        <!-- =================================
+             CONTACTO
+        ================================== -->
+
+        <section class="checkout-bloque checkout-contacto">
+
+            <div class="checkout-bloque-titulo">
+
+                <h2>
+                    Datos de contacto
+                </h2>
+
+                <p>
+                    Usaremos estos datos para informarte
+                    sobre tu pedido.
+                </p>
+
+            </div>
+
+
+            <div
+                class="checkout-datos-cliente"
+                id="checkout-datos-cliente"
+            >
+
+                <p>
+                    Cargando tus datos...
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+<!-- =====================================
+     MODAL DE AVISO
+===================================== -->
+
+<div
+    class="checkout-modal-fondo oculto"
+    id="checkout-modal-aviso"
+>
+
+    <div class="checkout-modal">
+
+        <div class="checkout-modal-icono">
+            !
+        </div>
+
+
+        <h2 id="checkout-modal-titulo">
+            Falta completar un dato
+        </h2>
+
+
+        <p id="checkout-modal-texto">
+        </p>
+
+
+        <button
+            type="button"
+            id="checkout-modal-aceptar"
+        >
+            Entendido
+        </button>
+
+    </div>
+
+</div>    
+
+
+    <script src="/sesion.js"></script>
+    <script src="/checkout.js"></script>
+
+</body>
+
+</html>

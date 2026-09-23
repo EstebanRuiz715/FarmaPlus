@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FarmaPlus
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+<body class="pagina-productos">
+
+    <header>
+
+    <h1 class="logo-sitio-contenedor">
+
+    <a
+        href="index.html"
+        class="logo-sitio"
+    >
+
+        <img
+            src="img/logo-farmaplus.png"
+            alt="FarmaPlus"
+            class="logo-sitio-img"
+        >
+
+    </a>
+
+</h1>
+
+    <div class="buscador">
+        <input type="text" placeholder="Buscar productos...">
+        <button>Buscar</button>
+    </div>
+
+    <nav>
+
+    <a href="index.html">Inicio</a>
+
+    <a href="productos.html">Productos</a>
+
+
+<a
+    href="#"
+    id="carrito"
+    class="carrito-nav"
+    aria-label="Abrir carrito"
+>
+
+    <img
+        src="img/carrito.png"
+        alt=""
+        class="carrito-nav-icono"
+    >
+
+    <span
+        id="contador-carrito"
+        class="carrito-nav-contador"
+    >
+        0
+    </span>
+
+</a>
+
+
+<div
+    class="sesion-nav"
+    id="sesion-nav"
+>
+    <a href="login.html">
+        Iniciar sesión
+    </a>
+</div>
+
+</nav>
+
+</header>
+    <main>
+
+        <section class="productos">
+
+            <h2>Productos</h2>
+           
+           <div class="categorias">
+
+    <button
+        class="categoria activa"
+        data-categoria="todos"
+    >
+        Todos
+    </button>
+
+    <button
+        class="categoria"
+        data-categoria="cuidado-personal"
+    >
+        Cuidado personal
+    </button>
+
+    <button
+        class="categoria"
+        data-categoria="piel"
+    >
+        Piel
+    </button>
+
+    <button
+        class="categoria"
+        data-categoria="higiene"
+    >
+        Higiene
+    </button>
+
+    <button
+        class="categoria"
+        data-categoria="medicamentos"
+    >
+        Medicamentos
+    </button>
+
+</div>
+
+<div
+    class="lista-productos"
+    id="lista-productos"
+>
+</div>
+
+</section>
+
+</main>
+
+<!-- =========================================
+     PIE DE PÁGINA
+========================================= -->
+
+<footer class="footer-farmaplus">
+
+    <div class="footer-contenido">
+
+
+        <!-- FARMAPLUS -->
+
+        <div class="footer-columna footer-marca">
+
+            <h2>
+                FarmaPlus
+            </h2>
+
+            <p>
+                Tu farmacia de confianza.
+                Productos de farmacia, higiene
+                y cuidado personal cerca tuyo.
+            </p>
+
+
+            <div class="footer-redes">
+
+                <a
+                    href="https://instagram.com/estebanrulz715"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                >
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+
+                <a
+                    href="https://x.com/home?lang=es"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X"
+                >
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+
+                <a
+                    href="https://www.facebook.com/?locale=es_LA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                >
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+
+                <a
+                    href="https://wa.me/549114031187"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                >
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVEGACIÓN -->
+
+        <div class="footer-columna">
+
+            <h3>
+                Navegación
+            </h3>
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="productos.html">
+                Productos
+            </a>
+
+            <a href="login.html">
+                Iniciar sesión
+            </a>
+
+        </div>
+
+
+        <!-- SUCURSAL -->
+
+        <div class="footer-columna">
+
+            <h3>
+                Nuestra sucursal
+            </h3>
+
+            <span>
+                Burzaco
+            </span>
+
+            <span>
+                Buenos Aires
+            </span>
+
+        </div>
+
+
+        <!-- CONTACTO -->
+
+        <div class="footer-columna">
+
+            <h3>
+                Contacto
+            </h3>
+
+            <p>
+                contacto@farmaplus.com
+            </p>
+
+            <p>
+                Atención de lunes a sábado
+            </p>
+
+            <p>
+                08:00 a 20:00 hs
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-inferior">
+
+        <p>
+            © 2026 FarmaPlus. Todos los derechos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+<section
+    id="panel-carrito"
+    class="panel-carrito oculto"
+>
+
+    <div class="carrito-encabezado">
+
+        <h2>
+            Tu carrito
+        </h2>
+
+        <button id="cerrar-carrito">
+            X
+        </button>
+
+    </div>
+
+
+    <div id="lista-carrito">
+
+        <p>
+            Tu carrito está vacío.
+        </p>
+
+    </div>
+
+
+    <div class="carrito-total">
+
+        <strong>
+            Total:
+            $<span id="total-carrito">0</span>
+        </strong>
+
+    </div>
+
+
+    <button class="finalizar-compra">
+        Finalizar compra
+    </button>
+
+</section>
+
+
+<script src="script.js"></script>
+<script src="sesion.js"></script>
+
+</body>
+
+</html>

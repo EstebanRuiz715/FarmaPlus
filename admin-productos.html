@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administrar productos - FarmaPlus</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body class="pagina-admin">
+
+
+    <header class="admin-header">
+
+        <a
+    href="/"
+    class="logo-global-enlace"
+>
+
+    <img
+        src="/img/logo-farmaplus.png"
+        alt="FarmaPlus"
+        class="logo-global-img"
+    >
+
+</a>
+
+
+        <div class="admin-header-derecha">
+
+            <a href="/admin">
+                Volver al panel
+            </a>
+
+            <a href="/productos.html">
+                Ver tienda
+            </a>
+
+            <div
+                class="sesion-nav"
+                id="sesion-nav"
+            >
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="admin-productos-pagina">
+
+
+        <section class="admin-productos-titulo">
+
+            <p class="admin-etiqueta">
+                PRODUCTOS
+            </p>
+
+            <h1>
+                Administrar productos
+            </h1>
+
+            <p>
+                Agregá y administrá los productos disponibles en FarmaPlus.
+            </p>
+
+        </section>
+
+
+        <section class="admin-productos-grid">
+
+
+            <!-- FORMULARIO -->
+
+            <div class="admin-formulario-producto">
+
+<h2 id="titulo-form-producto">
+    Agregar producto
+</h2>
+
+
+                <form
+    id="form-producto"
+    enctype="multipart/form-data"
+>
+
+
+                    <label for="producto-nombre">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="producto-nombre"
+                        placeholder="Ej: Shampoo de Coco"
+                    >
+
+
+                    <label for="producto-categoria">
+                        Categoría
+                    </label>
+
+                    <select
+                        id="producto-categoria"
+                    >
+
+                        <option value="">
+                            Seleccionar categoría
+                        </option>
+
+                        <option value="Cuidado personal">
+                            Cuidado personal
+                        </option>
+
+                        <option value="Piel">
+                            Piel
+                        </option>
+
+                        <option value="Higiene">
+                            Higiene
+                        </option>
+
+                        <option value="Medicamentos">
+                            Medicamentos
+                        </option>
+
+                    </select>
+
+
+                    <label for="producto-precio">
+                        Precio
+                    </label>
+
+                    <input
+                        type="number"
+                        id="producto-precio"
+                        min="1"
+                        placeholder="Ej: 5000"
+                    >
+
+
+                    <label for="producto-descripcion-corta">
+                        Descripción corta
+                    </label>
+
+                    <textarea
+                        id="producto-descripcion-corta"
+                        placeholder="Descripción breve del producto"
+                        rows="3"
+                    ></textarea>
+
+
+<label for="producto-descripcion-larga">
+    Descripción completa
+</label>
+
+<textarea
+    id="producto-descripcion-larga"
+    placeholder="Descripción completa del producto"
+    rows="7"
+></textarea>
+
+
+<label for="producto-imagen-frente">
+    Imagen frontal
+</label>
+
+<input
+    type="file"
+    id="producto-imagen-frente"
+    accept=".png,.jpg,.jpeg,.webp"
+>
+
+
+<label for="producto-imagen-dorso">
+    Imagen trasera
+</label>
+
+<input
+    type="file"
+    id="producto-imagen-dorso"
+    accept=".png,.jpg,.jpeg,.webp"
+>
+
+<label for="producto-stock">
+    Stock disponible
+</label>
+
+<input
+    type="number"
+    id="producto-stock"
+    min="0"
+    step="1"
+    value="0"
+    required
+>
+
+<label for="producto-estado">
+    Estado automático
+</label>
+
+<select
+    id="producto-estado"
+    disabled
+>
+    <option value="Disponible">
+        Disponible
+    </option>
+
+    <option value="Agotado">
+        Agotado
+    </option>
+</select>
+
+
+<button
+    type="submit"
+    id="boton-guardar-producto"
+>
+    + Agregar producto
+</button>
+
+<button
+    type="button"
+    id="boton-cancelar-edicion"
+    hidden
+>
+    Cancelar edición
+</button>
+
+
+                    <div
+                        id="mensaje-producto"
+                        class="mensaje-producto"
+                    >
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+<!-- LISTADO -->
+
+<div class="admin-listado-productos">
+
+    <h2>
+        Productos cargados
+    </h2>
+
+
+    <div class="admin-productos-herramientas">
+
+        <input
+            type="search"
+            id="buscar-producto-admin"
+            placeholder="Buscar producto..."
+            autocomplete="off"
+        >
+
+
+        <div class="admin-ordenar-productos">
+
+            <label for="ordenar-productos-admin">
+                Ordenar por:
+            </label>
+
+
+            <select id="ordenar-productos-admin">
+
+                <option value="nombre-asc">
+                    Nombre A-Z
+                </option>
+
+                <option value="nombre-desc">
+                    Nombre Z-A
+                </option>
+
+                <option value="precio-asc">
+                    Precio menor a mayor
+                </option>
+
+                <option value="precio-desc">
+                    Precio mayor a menor
+                </option>
+
+                <option value="disponibles">
+                    Disponibles primero
+                </option>
+
+                <option value="agotados">
+                    Agotados primero
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div id="lista-productos-admin">
+
+        <p>
+            Cargando productos...
+        </p>
+
+    </div>
+
+</div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="/sesion.js"></script>
+
+    <script src="/admin-productos.js"></script>
+
+
+</body>
+
+</html>

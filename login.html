@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Iniciar sesión - FarmaPlus
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="acceso-nuevo">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="acceso-nuevo-header">
+
+        <a href="index.html" class="acceso-nuevo-marca">
+    <img src="img/logo-farmaplus.png" alt="FarmaPlus" class="acceso-logo-img">
+</a>
+
+
+        <div class="acceso-nuevo-lema">
+
+            <span>
+                Tu salud, siempre más cerca
+            </span>
+
+            <div></div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CONTENIDO
+    ====================================== -->
+
+    <main class="acceso-nuevo-main">
+
+
+        <div class="acceso-nuevo-fondo"></div>
+
+
+        <section class="acceso-nuevo-card">
+
+
+            <!-- MARCA DENTRO DEL FORMULARIO -->
+
+            <div class="acceso-card-logo">
+    <img src="img/logo-farmaplus.png" alt="FarmaPlus" class="acceso-logo-card-img">
+</div>
+
+
+            <div class="acceso-card-titulo">
+
+                <h1>
+                    Iniciar sesión
+                </h1>
+
+                <p>
+                    Ingresá a tu cuenta de FarmaPlus
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 FORMULARIO
+            ================================== -->
+
+            <form
+                id="form-login"
+                class="acceso-formulario"
+            >
+
+
+                <!-- CORREO -->
+
+                <div class="acceso-campo">
+
+                    <div class="acceso-input-contenedor">
+
+                        <span class="acceso-input-icono">
+                            ✉
+                        </span>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Correo electrónico"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <small
+                        class="mensaje-error acceso-error"
+                        id="error-email-login"
+                    >
+                    </small>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+
+                <div class="acceso-campo">
+
+                    <div class="acceso-input-contenedor">
+
+                        <span class="acceso-input-icono acceso-icono-svg">
+
+    <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+        <rect
+            x="5"
+            y="10"
+            width="14"
+            height="10"
+            rx="2"
+        ></rect>
+
+        <path
+            d="M8 10V7a4 4 0 0 1 8 0v3"
+        ></path>
+    </svg>
+
+</span>
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Contraseña"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="acceso-mostrar-password"
+                            id="mostrar-password-login"
+                        >
+                            Mostrar
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="mensaje-error acceso-error"
+                        id="error-password-login"
+                    >
+                    </small>
+
+                </div>
+
+
+                <!-- BOTÓN -->
+
+                <button
+                    type="submit"
+                    class="acceso-boton-principal"
+                >
+
+                    <span>
+                        Iniciar sesión
+                    </span>
+
+                    <span class="acceso-boton-flecha">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- MENSAJE -->
+
+                <div
+                    id="mensaje-login"
+                    class="mensaje-registro acceso-mensaje"
+                >
+                </div>
+
+
+            </form>
+
+
+            <!-- REGISTRO -->
+
+            <div class="acceso-separador"></div>
+
+
+            <p class="acceso-cambiar-cuenta">
+
+                ¿No tenés una cuenta?
+
+                <a href="registro.html">
+                    Registrate
+                </a>
+
+            </p>
+
+
+        </section>
+
+
+        <!-- VOLVER -->
+
+        <a
+            href="productos.html"
+            class="acceso-volver"
+        >
+
+            <span>
+                ←
+            </span>
+
+            Volver a la tienda
+
+        </a>
+
+
+    </main>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="acceso-nuevo-footer">
+
+
+        <div class="acceso-footer-marca">
+
+            <strong>
+                FarmaPlus
+            </strong>
+
+            <span></span>
+
+            <p>
+                Tu farmacia de confianza,
+                siempre con vos.
+            </p>
+
+        </div>
+
+
+        <div class="acceso-footer-beneficios">
+
+            <span>
+                🚚 Envíos a domicilio
+            </span>
+
+            <span>
+                🛡 Compra segura
+            </span>
+
+            <span>
+                ♡ Tu salud, nuestra prioridad
+            </span>
+
+        </div>
+
+
+    </footer>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

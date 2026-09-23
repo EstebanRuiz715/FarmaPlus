@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Crear cuenta - FarmaPlus
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="acceso-nuevo">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="acceso-nuevo-header">
+
+        <a
+            href="index.html"
+            class="acceso-nuevo-marca"
+        >
+
+            <img
+                src="img/logo-farmaplus.png"
+                alt="FarmaPlus"
+                class="acceso-logo-img"
+            >
+
+        </a>
+
+
+        <div class="acceso-nuevo-lema">
+
+            <span>
+                Tu salud, siempre más cerca
+            </span>
+
+            <div></div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CONTENIDO
+    ====================================== -->
+
+    <main class="acceso-nuevo-main acceso-registro-main">
+
+
+        <div class="acceso-nuevo-fondo"></div>
+
+
+        <section class="acceso-nuevo-card acceso-registro-card">
+
+
+            <!-- LOGO -->
+
+            <div class="acceso-card-logo">
+
+                <img
+                    src="img/logo-farmaplus.png"
+                    alt="FarmaPlus"
+                    class="acceso-logo-card-img"
+                >
+
+            </div>
+
+
+            <!-- TÍTULO -->
+
+            <div class="acceso-card-titulo acceso-registro-titulo">
+
+                <h1>
+                    Crear cuenta
+                </h1>
+
+                <p>
+                    Registrate para comprar en FarmaPlus
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 FORMULARIO
+            ================================== -->
+
+            <form
+                id="form-registro"
+                class="acceso-formulario"
+            >
+
+
+                <!-- NOMBRE -->
+
+                <div class="acceso-campo">
+
+                    <div class="acceso-input-contenedor">
+
+                        <span class="acceso-input-icono acceso-icono-svg">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <circle
+                                    cx="12"
+                                    cy="8"
+                                    r="4"
+                                ></circle>
+
+                                <path
+                                    d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"
+                                ></path>
+                            </svg>
+
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Nombre completo"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <small
+                        class="mensaje-error acceso-error"
+                        id="error-nombre"
+                    >
+                    </small>
+
+                </div>
+
+
+                <!-- CORREO -->
+
+                <div class="acceso-campo">
+
+                    <div class="acceso-input-contenedor">
+
+                        <span class="acceso-input-icono acceso-icono-svg">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+
+                                <path
+                                    d="M4 7l8 6 8-6"
+                                ></path>
+                            </svg>
+
+                        </span>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Correo electrónico"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <small
+                        class="mensaje-error acceso-error"
+                        id="error-email"
+                    >
+                    </small>
+
+                </div>
+
+
+                <!-- CONTRASEÑA -->
+
+                <div class="acceso-campo">
+
+                    <div class="acceso-input-contenedor">
+
+                        <span class="acceso-input-icono acceso-icono-svg">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <rect
+                                    x="5"
+                                    y="10"
+                                    width="14"
+                                    height="10"
+                                    rx="2"
+                                ></rect>
+
+                                <path
+                                    d="M8 10V7a4 4 0 0 1 8 0v3"
+                                ></path>
+                            </svg>
+
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Contraseña"
+                            autocomplete="new-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="acceso-mostrar-password"
+                            id="mostrar-password-registro"
+                        >
+                            Mostrar
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="mensaje-error acceso-error"
+                        id="error-password"
+                    >
+                    </small>
+
+                </div>
+
+
+                <!-- CONFIRMAR CONTRASEÑA -->
+
+                <div class="acceso-campo">
+
+                    <div class="acceso-input-contenedor">
+
+                        <span class="acceso-input-icono acceso-icono-svg">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <rect
+                                    x="5"
+                                    y="10"
+                                    width="14"
+                                    height="10"
+                                    rx="2"
+                                ></rect>
+
+                                <path
+                                    d="M8 10V7a4 4 0 0 1 8 0v3"
+                                ></path>
+                            </svg>
+
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="confirmar-password"
+                            placeholder="Confirmar contraseña"
+                            autocomplete="new-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="acceso-mostrar-password"
+                            id="mostrar-confirmar-password"
+                        >
+                            Mostrar
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="mensaje-error acceso-error"
+                        id="error-confirmar"
+                    >
+                    </small>
+
+                </div>
+
+
+                <!-- AYUDA -->
+
+                <p class="acceso-password-ayuda">
+                    La contraseña debe tener al menos 8 caracteres.
+                </p>
+
+
+                <!-- BOTÓN -->
+
+                <button
+                    type="submit"
+                    class="acceso-boton-principal"
+                >
+
+                    <span>
+                        Crear cuenta
+                    </span>
+
+                    <span class="acceso-boton-flecha">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- MENSAJE -->
+
+                <div
+                    id="mensaje-registro"
+                    class="mensaje-registro acceso-mensaje"
+                >
+                </div>
+
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="acceso-separador"></div>
+
+
+            <p class="acceso-cambiar-cuenta">
+
+                ¿Ya tenés una cuenta?
+
+                <a href="login.html">
+                    Iniciar sesión
+                </a>
+
+            </p>
+
+
+        </section>
+
+
+        <!-- VOLVER -->
+
+        <a
+            href="productos.html"
+            class="acceso-volver"
+        >
+
+            <span>
+                ←
+            </span>
+
+            Volver a la tienda
+
+        </a>
+
+
+    </main>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="acceso-nuevo-footer">
+
+
+        <div class="acceso-footer-marca">
+
+            <strong>
+                FarmaPlus
+            </strong>
+
+            <span></span>
+
+            <p>
+                Tu farmacia de confianza,
+                siempre con vos.
+            </p>
+
+        </div>
+
+
+        <div class="acceso-footer-beneficios">
+
+            <span>
+                🚚 Envíos a domicilio
+            </span>
+
+            <span>
+                🛡 Compra segura
+            </span>
+
+            <span>
+                ♡ Tu salud, nuestra prioridad
+            </span>
+
+        </div>
+
+
+    </footer>
+
+
+    <script src="registro.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Producto - FarmaPlus</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="pagina-detalle">
+
+
+    <header>
+
+        <h1 class="logo-sitio-contenedor">
+
+    <a
+        href="index.html"
+        class="logo-sitio"
+    >
+
+        <img
+            src="img/logo-farmaplus.png"
+            alt="FarmaPlus"
+            class="logo-sitio-img"
+        >
+
+    </a>
+
+</h1>
+
+
+        <nav>
+
+            <a href="index.html">Inicio</a>
+
+            <a href="productos.html">Productos</a>
+
+
+<a
+    href="#"
+    id="carrito-detalle"
+    class="carrito-nav"
+    aria-label="Abrir carrito"
+>
+
+    <img
+        src="img/carrito.png"
+        alt=""
+        class="carrito-nav-icono"
+    >
+
+    <span
+        id="contador-carrito-detalle"
+        class="carrito-nav-contador"
+    >
+        0
+    </span>
+
+</a>
+
+
+<div
+    class="sesion-nav"
+    id="sesion-nav"
+>
+    <a href="login.html">
+        Iniciar sesión
+    </a>
+</div>
+        </nav>
+
+    </header>
+
+
+    <main class="detalle-producto">
+
+
+        <div class="migas">
+
+            <a href="index.html">Inicio</a>
+
+            <span>›</span>
+
+            <a href="productos.html">Productos</a>
+
+            <span>›</span>
+
+            <span id="miga-producto">
+                Producto
+            </span>
+
+        </div>
+
+
+        <div class="detalle-contenido">
+
+
+  <!-- PARTE IZQUIERDA -->
+
+<section class="detalle-imagen-contenedor">
+
+    <div class="producto-galeria">
+
+
+        <!-- IMAGEN PRINCIPAL + ZOOM -->
+
+        <div class="zoom-contenedor">
+
+            <img
+                id="imagen-principal"
+                src=""
+                alt="Producto"
+            >
+
+            <div id="lupa-zoom"></div>
+
+        </div>
+
+
+        <!-- VENTANA DEL ZOOM -->
+
+        <div id="zoom-producto"></div>
+
+
+        <!-- MINIATURAS -->
+
+        <div
+            id="miniaturas-producto"
+            class="miniaturas-producto">
+        </div>
+
+
+        <!-- DESCRIPCIÓN DEL PRODUCTO -->
+
+        <div class="descripcion-producto">
+
+            <h3>
+                Descripción
+            </h3>
+
+            <div id="descripcion-producto-texto">
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+            <!-- PARTE DERECHA -->
+
+            <section class="detalle-info">
+
+                <p
+                    class="detalle-categoria"
+                    id="categoria-producto"
+                >
+                    Categoría
+                </p>
+
+
+                <h2 id="nombre-producto">
+                    Nombre del producto
+                </h2>
+
+
+<p
+    class="detalle-disponible"
+    id="estado-producto"
+>
+    ● Disponible
+</p>
+
+
+                <p
+                    class="detalle-precio"
+                    id="precio-producto"
+                >
+                    $0
+                </p>
+
+
+<p
+    class="detalle-descripcion"
+    id="descripcion-disponibilidad"
+>
+    Producto disponible para retiro
+en FarmaPlus Burzaco.
+</p>
+
+
+                <div class="cantidad-producto-detalle">
+
+    <p>Cantidad</p>
+
+    <div class="selector-cantidad-detalle">
+
+        <button id="restar-detalle">−</button>
+
+        <span id="cantidad-detalle">1</span>
+
+        <button id="sumar-detalle">+</button>
+
+    </div>
+
+</div>
+
+
+<button
+    class="detalle-agregar"
+    id="agregar-detalle"
+>
+    🛒 Agregar al carrito
+</button>
+
+                <div class="detalle-aviso">
+
+                    Iniciá sesión para finalizar tu compra
+                    y elegir la sucursal de retiro.
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+<section id="panel-carrito-detalle" class="panel-carrito oculto">
+
+    <div class="carrito-encabezado">
+
+        <h2>Tu carrito</h2>
+
+        <button id="cerrar-carrito-detalle">
+            X
+        </button>
+
+    </div>
+
+
+    <div id="lista-carrito-detalle">
+
+        <p>Tu carrito está vacío.</p>
+
+    </div>
+
+
+    <div class="carrito-total">
+
+        <strong>
+            Total:
+            $<span id="total-carrito-detalle">0</span>
+        </strong>
+
+    </div>
+
+
+    <button
+        class="finalizar-compra"
+        id="finalizar-compra-detalle"
+    >
+        Finalizar compra
+    </button>
+
+</section>
+
+    <script src="producto.js"></script>
+    <script src="sesion.js"></script>
+
+</body>
+
+</html>
