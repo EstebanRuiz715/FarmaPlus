@@ -8223,3 +8223,92 @@ p:last-child {
     }
 
 }
+
+/* =========================================
+   CHECKOUT - CONTROLES DEL CARRITO
+========================================= */
+
+.checkout-producto-acciones {
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkout-cantidad {
+    display: inline-flex;
+    align-items: center;
+
+    border: 1px solid #d7e1dc;
+    border-radius: 999px;
+
+    background-color: #f7faf8;
+
+    overflow: hidden;
+}
+
+.checkout-cantidad button:not(.boton-maximo) {
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border: none;
+    background-color: transparent;
+
+    color: #168a5b;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.checkout-cantidad button:not(.boton-maximo):hover {
+    background-color: #e6f5ed;
+}
+
+.checkout-cantidad span {
+    min-width: 30px;
+
+    text-align: center;
+
+    color: #222;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.checkout-eliminar {
+    padding: 8px 13px;
+
+    border: 1px solid #e6b8b8;
+    border-radius: 999px;
+
+    background-color: #fff7f7;
+    color: #c83a3a;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.checkout-eliminar:hover {
+    border-color: #d93636;
+
+    background-color: #ffeaea;
+    color: #b92d2d;
+}
