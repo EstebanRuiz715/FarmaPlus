@@ -500,7 +500,7 @@ function actualizarTipoEntrega() {
 
 
         avisoPago.textContent =
-            "Para envíos a domicilio, el pedido debe pagarse antes del despacho.";
+            "Proyecto demo: los pagos son simulados y no se procesan transacciones reales.";
 
 
         const metodoSeleccionado =
