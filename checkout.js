@@ -535,7 +535,7 @@ function actualizarTipoEntrega() {
 
 
         avisoPago.textContent =
-            "Podés pagar ahora o al retirar tu compra.";
+            "Proyecto demo: los pagos son simulados y no se procesan transacciones reales.";
 
     }
 
