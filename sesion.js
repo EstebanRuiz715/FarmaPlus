@@ -472,7 +472,7 @@ async function cerrarSesion() {
 
 
         window.location.href =
-            "index.html";
+            "/";
 
 
     } catch (error) {
