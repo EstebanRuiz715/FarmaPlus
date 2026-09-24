@@ -572,9 +572,57 @@
     </main>
 
 
+    <!-- =========================================
+         MODAL ELIMINAR DIRECCIÓN
+         ========================================= -->
+
+    <div
+        id="modal-eliminar-direccion-fondo"
+        class="modal-eliminar-direccion-fondo"
+        hidden
+    >
+        <div
+            class="modal-eliminar-direccion"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-eliminar-direccion-titulo"
+        >
+            <div class="modal-eliminar-direccion-icono">
+                🗑
+            </div>
+
+            <h2 id="modal-eliminar-direccion-titulo">
+                Eliminar dirección
+            </h2>
+
+            <p>
+                ¿Querés eliminar esta dirección?
+                Esta acción no se puede deshacer.
+            </p>
+
+            <div class="modal-eliminar-direccion-botones">
+                <button
+                    type="button"
+                    id="modal-eliminar-direccion-cancelar"
+                    class="modal-eliminar-direccion-cancelar"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    id="modal-eliminar-direccion-confirmar"
+                    class="modal-eliminar-direccion-confirmar"
+                >
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+
     <script src="/sesion.js"></script>
     <script src="/perfil.js"></script>
 
 </body>
-
 </html>

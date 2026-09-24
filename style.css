@@ -8312,3 +8312,125 @@ p:last-child {
     background-color: #ffeaea;
     color: #b92d2d;
 }
+
+/* =========================================
+   PERFIL - MODAL ELIMINAR DIRECCIÓN
+========================================= */
+
+.modal-eliminar-direccion-fondo {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.modal-eliminar-direccion-fondo[hidden] {
+    display: none;
+}
+
+.modal-eliminar-direccion {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    border-radius: 18px;
+
+    background-color: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 18px 50px
+        rgba(0, 0, 0, 0.22);
+}
+
+.modal-eliminar-direccion-icono {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #ffeaea;
+
+    font-size: 26px;
+}
+
+.modal-eliminar-direccion h2 {
+    margin: 0 0 10px;
+
+    color: #222;
+}
+
+.modal-eliminar-direccion p {
+    margin: 0 0 25px;
+
+    color: #666;
+
+    line-height: 1.5;
+}
+
+.modal-eliminar-direccion-botones {
+    display: flex;
+
+    gap: 12px;
+}
+
+.modal-eliminar-direccion-botones button {
+    flex: 1;
+
+    padding: 12px 16px;
+
+    border: none;
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.modal-eliminar-direccion-cancelar {
+    background-color: #eeeeee;
+
+    color: #333;
+}
+
+.modal-eliminar-direccion-cancelar:hover {
+    background-color: #dddddd;
+
+    transform: translateY(-1px);
+}
+
+.modal-eliminar-direccion-confirmar {
+    background-color: #d93636;
+
+    color: white;
+}
+
+.modal-eliminar-direccion-confirmar:hover {
+    background-color: #bb2929;
+
+    transform: translateY(-1px);
+}

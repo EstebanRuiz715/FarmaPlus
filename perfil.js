@@ -1033,6 +1033,131 @@ function mostrarDirecciones(
 }
 
 // =========================================
+// MODAL ELIMINAR DIRECCIÓN
+// =========================================
+
+const modalEliminarDireccionFondo =
+    document.getElementById(
+        "modal-eliminar-direccion-fondo"
+    );
+
+const modalEliminarDireccionCancelar =
+    document.getElementById(
+        "modal-eliminar-direccion-cancelar"
+    );
+
+const modalEliminarDireccionConfirmar =
+    document.getElementById(
+        "modal-eliminar-direccion-confirmar"
+    );
+
+let resolverModalEliminarDireccion =
+    null;
+
+
+function confirmarEliminarDireccion() {
+
+    modalEliminarDireccionFondo.hidden =
+        false;
+
+    return new Promise(
+        function(resolve) {
+
+            resolverModalEliminarDireccion =
+                resolve;
+
+        }
+    );
+}
+
+
+function cerrarModalEliminarDireccion(
+    confirmado
+) {
+
+    modalEliminarDireccionFondo.hidden =
+        true;
+
+    if (
+        resolverModalEliminarDireccion
+    ) {
+
+        resolverModalEliminarDireccion(
+            confirmado
+        );
+
+        resolverModalEliminarDireccion =
+            null;
+    }
+}
+
+
+modalEliminarDireccionCancelar
+    .addEventListener(
+        "click",
+        function() {
+
+            cerrarModalEliminarDireccion(
+                false
+            );
+
+        }
+    );
+
+
+modalEliminarDireccionConfirmar
+    .addEventListener(
+        "click",
+        function() {
+
+            cerrarModalEliminarDireccion(
+                true
+            );
+
+        }
+    );
+
+
+modalEliminarDireccionFondo
+    .addEventListener(
+        "click",
+        function(evento) {
+
+            if (
+                evento.target ===
+                modalEliminarDireccionFondo
+            ) {
+
+                cerrarModalEliminarDireccion(
+                    false
+                );
+
+            }
+
+        }
+    );
+
+
+document.addEventListener(
+    "keydown",
+    function(evento) {
+
+        if (
+            evento.key === "Escape"
+            &&
+            !modalEliminarDireccionFondo.hidden
+        ) {
+
+            cerrarModalEliminarDireccion(
+                false
+            );
+
+        }
+
+    }
+);
+
+// =========================================
 // BOTONES DE DIRECCIONES
 // =========================================
 
@@ -1157,10 +1282,8 @@ function activarBotonesDireccion() {
                         boton.dataset.id;
 
 
-                    const confirmar =
-                        window.confirm(
-                            "¿Querés eliminar esta dirección?"
-                        );
+                   const confirmar =
+                       await confirmarEliminarDireccion();
 
 
                     if (!confirmar) {
