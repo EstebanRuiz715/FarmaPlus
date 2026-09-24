@@ -2,6 +2,14 @@
 
 [English](README.md) | [Español](README.es.md)
 
+## Live Demo
+
+FarmaPlus is deployed and available online:
+
+👉 [Open FarmaPlus](https://farmaplus-production-baa0.up.railway.app)
+
+> FarmaPlus is a portfolio/demo project. Payments are simulated and no real transactions are processed.
+
 FarmaPlus is a pharmacy web application developed as a demonstration and portfolio project.
 
 The system allows users to browse a product catalog, register and log in, manage a profile and delivery addresses, use a shopping cart, complete a simulated checkout, and manage products and orders from an administration panel.
