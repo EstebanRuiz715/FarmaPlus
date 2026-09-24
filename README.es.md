@@ -47,6 +47,8 @@ El sistema permite navegar por un catálogo de productos, registrarse e iniciar 
 - Werkzeug
 - python-dotenv
 - Gunicorn
+- Pillow
+- Flask-Limiter
 
 ## Estructura general
 
@@ -54,10 +56,11 @@ El sistema permite navegar por un catálogo de productos, registrarse e iniciar 
 FarmaPlus/
 ├── app.py
 ├── seed_demo.py
+├── promover_admin.py
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore
-├── farmaplus.db
+├── farmaplus.db        # se genera localmente, no se versiona
 ├── img/
 ├── index.html
 ├── productos.html
@@ -176,6 +179,18 @@ Cuando la aplicación se ejecuta en Railway con un volumen persistente, FarmaPlu
 
 En local, si esta variable no existe, FarmaPlus continúa utilizando los archivos dentro de la carpeta del proyecto.
 
+## Crear un administrador local
+
+Por seguridad, FarmaPlus no incluye credenciales de administrador predeterminadas.
+
+Para habilitar una cuenta como administrador:
+
+1. Registrar una cuenta normalmente desde la aplicación.
+2. Ejecutar:
+
+```powershell
+py .\promover_admin.py correo@ejemplo.com
+
 ## Base de datos
 
 FarmaPlus utiliza SQLite.
@@ -233,6 +248,10 @@ El proyecto incluye, entre otras medidas:
 - validaciones de stock y disponibilidad en el servidor;
 - claves foráneas activadas en SQLite;
 - variables sensibles fuera del repositorio mediante `.env`.
+- validación del contenido real de las imágenes subidas;
+- límite de tamaño para archivos subidos;
+- limitación de intentos repetidos de inicio de sesión;
+- verificación de mismo origen para peticiones que modifican datos;
 
 Las credenciales privadas del administrador no forman parte del repositorio.
 

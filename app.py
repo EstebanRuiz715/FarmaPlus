@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import datetime
+from urllib.parse import urlparse
 import os
 import sqlite3
 import uuid
@@ -23,11 +24,109 @@ from werkzeug.security import (
 
 from werkzeug.utils import secure_filename
 
+from PIL import (
+    Image,
+    UnidentifiedImageError
+)
+
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
 load_dotenv()
 
 
 app = Flask(__name__)
 
+
+limiter = Limiter(
+    key_func=get_remote_address,
+    app=app,
+    default_limits=[],
+    storage_uri="memory://"
+)
+
+
+@app.errorhandler(429)
+def demasiados_intentos(error):
+
+    return jsonify({
+        "ok": False,
+        "mensaje":
+            (
+                "Demasiados intentos. "
+                "Esperá un momento y volvé a intentar."
+            )
+    }), 429
+
+# =========================================
+# PROTECCIÓN CSRF - MISMO ORIGEN
+# =========================================
+
+@app.before_request
+def proteger_peticiones_csrf():
+
+    metodos_seguro = {
+        "GET",
+        "HEAD",
+        "OPTIONS"
+    }
+
+
+    if request.method in metodos_seguro:
+
+        return None
+
+
+    origen = request.headers.get(
+        "Origin"
+    )
+
+
+    if not origen:
+
+        return jsonify({
+            "ok": False,
+            "mensaje":
+                "No se pudo verificar el origen de la petición."
+        }), 403
+
+
+    try:
+
+        origen_parseado = urlparse(
+            origen
+        )
+
+
+        host_origen = (
+            origen_parseado.netloc
+        ).lower()
+
+
+        host_actual = (
+            request.host
+        ).lower()
+
+
+    except ValueError:
+
+        return jsonify({
+            "ok": False,
+            "mensaje":
+                "El origen de la petición no es válido."
+        }), 403
+
+
+    if host_origen != host_actual:
+
+        return jsonify({
+            "ok": False,
+            "mensaje":
+                "Petición bloqueada por seguridad."
+        }), 403
+
+
+    return None
 
 SECRET_KEY = os.environ.get(
     "SECRET_KEY"
@@ -649,6 +748,68 @@ def guardar_imagen_producto(archivo):
         )
 
 
+    # =========================================
+    # VALIDAR QUE SEA UNA IMAGEN REAL
+    # =========================================
+
+    try:
+
+        imagen = Image.open(
+            archivo.stream
+        )
+
+
+        formato_real = imagen.format
+
+
+        ancho, alto = imagen.size
+
+
+        if formato_real not in {
+            "PNG",
+            "JPEG",
+            "WEBP"
+        }:
+
+            raise ValueError(
+                "El archivo no es una imagen permitida."
+            )
+
+
+        if (
+            ancho <= 0
+            or alto <= 0
+            or ancho > 6000
+            or alto > 6000
+        ):
+
+            raise ValueError(
+                "Las dimensiones de la imagen no son válidas."
+            )
+
+
+        imagen.verify()
+
+
+    except UnidentifiedImageError:
+
+        raise ValueError(
+            "El archivo seleccionado no es una imagen válida."
+        )
+
+
+    except OSError:
+
+        raise ValueError(
+            "No se pudo leer la imagen seleccionada."
+        )
+
+
+    finally:
+
+        archivo.stream.seek(0)
+
+
     nombre_nuevo = (
         uuid.uuid4().hex
         + extension
@@ -850,7 +1011,47 @@ def registrar_usuario():
 # INICIO DE SESIÓN
 # =========================================
 
+def clave_limite_login():
+
+    datos = request.get_json(
+        silent=True
+    ) or {}
+
+
+    email = str(
+        datos.get(
+            "email",
+            ""
+        )
+    ).strip().lower()
+
+
+    if email:
+
+        return (
+            "login:"
+            + email
+        )
+
+
+    return (
+        "login-ip:"
+        + str(
+            request.remote_addr
+            or
+            "desconocida"
+        )
+    )
+
 @app.route("/api/login", methods=["POST"])
+@limiter.limit(
+    "5 per minute",
+    key_func=clave_limite_login
+)
+@limiter.limit(
+    "20 per hour",
+    key_func=clave_limite_login
+)
 def iniciar_sesion():
 
     datos = request.get_json()

@@ -3,3 +3,5 @@ farmaplus.db
 __pycache__/
 *.pyc
 .venv/
+*.db-journal
+uploads/
